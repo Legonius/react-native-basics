@@ -4,11 +4,15 @@ import LearningButton from "./components/LearningButton";
 import LearningImage from "./components/LearningImage";
 import { useState } from "react";
 import LearningPressable from "./components/LearningPressable";
+import LearningStatusBar from "./components/LearningStatusBar";
+import LearnActivityIndicator from "./components/LearnActivityIndicator";
 
 export default function App() {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <View style={styles.container}>
+      <LearningStatusBar />
+      <LearnActivityIndicator />
       <ScrollView
         style={{ flex: 1 }}
         contentContainerStyle={styles.contentContainer} // scroll view need content container to customize style inner elements
