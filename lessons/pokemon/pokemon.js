@@ -1,8 +1,9 @@
 import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import React from "react";
 import AllPokemon from "../../components/pokemon/AllPokemon";
+import SelectedPokemon from "../../components/pokemon/selectedPokemon";
 
 export default function Pokemon() {
   const [pkmId, setPkmId] = useState(null);
@@ -10,7 +11,11 @@ export default function Pokemon() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar hidden />
-      <AllPokemon setPkmId={setPkmId} />
+      {pkmId === null ? (
+        <AllPokemon setPkmId={setPkmId} />
+      ) : (
+        <SelectedPokemon id={pkmId} setId={setPkmId} />
+      )}
     </SafeAreaView>
   );
 }
