@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, Button } from "react-native";
+import {
+  View,
+  ScrollView,
+  Text,
+  StyleSheet,
+  Image,
+  Button,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { exactPokemon } from "../../constants";
 
@@ -20,7 +27,7 @@ export default function SelectedPokemon({ id, setId }) {
     }
   }, [id]);
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Button title="Back" onPress={() => setId(null)} />
       {pokemon.name ? (
         <View style={styles.container2}>
@@ -56,7 +63,7 @@ export default function SelectedPokemon({ id, setId }) {
       ) : (
         <Text>Loading</Text>
       )}
-    </View>
+    </ScrollView>
   );
 }
 
