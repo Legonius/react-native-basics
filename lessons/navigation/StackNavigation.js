@@ -4,8 +4,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import About from "./screens/About";
 import { Pressable, Text } from "react-native";
+import DynamicStack from "./screens/DynamicStack";
 export default function StackNavigation() {
   const Stack = createNativeStackNavigator();
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -32,10 +34,17 @@ export default function StackNavigation() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ title: "Welcome Home" }}
+          options={({ route }) => ({
+            title: route.params.dName || route.params.name,
+          })}
           initialParams={{ name: "Guest" }}
         />
         <Stack.Screen name="About" component={About} />
+        <Stack.Screen
+          name="Dynamic"
+          component={DynamicStack}
+          options={({ route }) => ({ title: route.params.dName })} //option 1
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

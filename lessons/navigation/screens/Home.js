@@ -4,7 +4,7 @@ import React from "react";
 export default function Home({ navigation, route }) {
   //   const navigationManually = useNavigation(); // can use this too
 
-  const { name } = route.params;
+  const { name, dName } = route.params;
   return (
     <View style={styles.container}>
       <Text>Welcome {name}</Text>
@@ -15,6 +15,12 @@ export default function Home({ navigation, route }) {
       <Button
         title="Change Name"
         onPress={() => navigation.setParams({ name: "Guest Again" })} // set Params
+      />
+      <Button
+        title="Go to Dynamic"
+        onPress={() =>
+          navigation.navigate("Dynamic", { dName: "Dynamic Name" })
+        }
       />
     </View>
   );
