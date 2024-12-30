@@ -5,6 +5,7 @@ import dashboard from "./screens/dashboard";
 import Settings from "./screens/Settings";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import StackNavigation from "./navigation/StackNavigation";
 
 export default function TabNavi() {
   const Tab = createBottomTabNavigator();
@@ -40,6 +41,7 @@ export default function TabNavi() {
           name="Setting"
           component={Settings}
         />
+        <Tab.Screen name="StackNavi" component={StackNavigation} />
       </Tab.Navigator>
     </NavigationContainer>
   );
